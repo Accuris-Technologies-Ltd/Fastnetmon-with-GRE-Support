@@ -16,3 +16,4 @@ src/simple_packet_capnp/simple_packet.capnp.c++
 src/simple_packet_capnp/simple_packet.capnp.h
 src/traffic_output_formats/protobuf/traffic_data.pb.cc
 src/traffic_output_formats/protobuf/traffic_data.pb.h
+.vscode/
