@@ -13,6 +13,6 @@ RUN if [ "$TARGETPLATFORM" = "linux/amd64" ]; then \
   chmod +x installer && \
   ./installer -install_community_edition
 
-LABEL org.opencontainers.image.source=https://github.com/pavel-odintsov/fastnetmon
+LABEL org.opencontainers.image.source=https://github.com/Accuris-Technologies-Ltd/Fastnetmon-with-GRE-Support
 
 CMD ["/opt/fastnetmon-community/app/bin/fastnetmon"]

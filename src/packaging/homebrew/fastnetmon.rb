@@ -1,8 +1,8 @@
 class Fastnetmon < Formula
   desc "DDoS detection tool with sFlow, Netflow, IPFIX and port mirror support"
-  homepage "https://github.com/pavel-odintsov/fastnetmon/"
+  homepage "https://github.com/Accuris-Technologies-Ltd/Fastnetmon-with-GRE-Support/"
   license "GPL-2.0-only"
-  head "https://github.com/pavel-odintsov/fastnetmon.git"
+  head "https://github.com/Accuris-Technologies-Ltd/Fastnetmon-with-GRE-Support.git"
   revision 5
 
   bottle do

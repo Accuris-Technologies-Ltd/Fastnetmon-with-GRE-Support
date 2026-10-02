@@ -113,7 +113,7 @@ jobs:
         run: docker exec --env DEBIAN_FRONTEND linux_docker apt-get install -y s3cmd
 
       - name: Clone FastNetMon repository
-        run: docker exec linux_docker git clone https://github.com/pavel-odintsov/fastnetmon.git
+        run: docker exec linux_docker git clone https://github.com/Accuris-Technologies-Ltd/Fastnetmon-with-GRE-Support.git
 
       - name: Install GCC
         timeout-minutes: 120

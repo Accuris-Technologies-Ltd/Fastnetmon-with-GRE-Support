@@ -5,7 +5,7 @@ CATEGORIES=	net-mgmt security
 
 MAINTAINER=	farrokhi@FreeBSD.org
 COMMENT=	Very fast DDoS analyzer with sflow/netflow/mirror support
-WWW=		https://github.com/pavel-odintsov/fastnetmon
+WWW=		https://github.com/Accuris-Technologies-Ltd/Fastnetmon-with-GRE-Support
 
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/LICENSE

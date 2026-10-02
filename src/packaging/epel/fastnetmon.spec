@@ -11,9 +11,9 @@ Release:           1.git%{commit0}%{?dist}
 
 Summary:           DDoS detection tool with sFlow, Netflow, IPFIX and port mirror support
 License:           GPLv2
-URL:               https://github.com/pavel-odintsov/fastnetmon
+URL:               https://github.com/Accuris-Technologies-Ltd/Fastnetmon-with-GRE-Support
 
-Source0:           https://github.com/pavel-odintsov/fastnetmon/archive/%{commit0}.tar.gz
+Source0:           https://github.com/Accuris-Technologies-Ltd/Fastnetmon-with-GRE-Support/archive/%{commit0}.tar.gz
 Source1:           fastnetmon.sysusers
 
 BuildRequires:     make

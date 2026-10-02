@@ -31,7 +31,7 @@ jobs:
       - name: Start base container
         run: |
           docker run --name linux_docker \
-            --label "org.opencontainers.image.source=https://github.com/pavel-odintsov/fastnetmon" \
+            --label "org.opencontainers.image.source=https://github.com/Accuris-Technologies-Ltd/Fastnetmon-with-GRE-Support" \
             -d -t ${{ matrix.docker_image }}
 
       - name: Update apt cache
@@ -41,7 +41,7 @@ jobs:
         run: docker exec --env DEBIAN_FRONTEND linux_docker apt-get install -y perl wget git s3cmd vim nano libncurses-dev
 
       - name: Clone FastNetMon repository
-        run: docker exec linux_docker git clone https://github.com/pavel-odintsov/fastnetmon.git
+        run: docker exec linux_docker git clone https://github.com/Accuris-Technologies-Ltd/Fastnetmon-with-GRE-Support.git
 
       - name: Install GCC
         timeout-minutes: 120

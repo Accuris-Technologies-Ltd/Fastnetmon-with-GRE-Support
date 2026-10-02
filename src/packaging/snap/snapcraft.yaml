@@ -8,8 +8,8 @@ description: |
   supporting NetFlow, IPFIX, sFlow, PCAP and AF_PACKET traffic sources.
 contact: support@fastnetmon.com
 website: https://fastnetmon.com/
-issues: https://github.com/pavel-odintsov/fastnetmon/issues
-source-code: https://github.com/pavel-odintsov/fastnetmon
+issues: https://github.com/Accuris-Technologies-Ltd/Fastnetmon-with-GRE-Support/issues
+source-code: https://github.com/Accuris-Technologies-Ltd/Fastnetmon-with-GRE-Support
 
 grade: devel
 confinement: strict
@@ -62,7 +62,7 @@ parts:
     source-type: local
 
     # for build with getting code from git change to
-    #source: https://github.com/pavel-odintsov/fastnetmon.git
+    #source: https://github.com/Accuris-Technologies-Ltd/Fastnetmon-with-GRE-Support.git
     #source-type: git
     #source-tag: v1.2.9
     ## source-branch: 
