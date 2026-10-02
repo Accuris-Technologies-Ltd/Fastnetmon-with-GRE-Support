@@ -67,7 +67,7 @@ jobs:
         run: docker exec linux_docker yum install -y perl wget python3-pip perl-Archive-Tar git
 
       - name: Clone FastNetMon repository
-        run: docker exec linux_docker git clone https://github.com/Accuris-Technologies-Ltd/Fastnetmon-with-GRE-Support.git
+        run: docker exec linux_docker git clone https://github.com/Accuris-Technologies-Ltd/Fastnetmon-with-GRE-Support.git fastnetmon
 
       - name: Install s3cmd
         run: docker exec linux_docker pip3 install s3cmd

@@ -42,7 +42,7 @@ jobs:
             libboost-thread-dev libabsl-dev
 
       - name: Clone FastNetMon repository
-        run: docker exec linux_docker git clone https://github.com/Accuris-Technologies-Ltd/Fastnetmon-with-GRE-Support.git
+        run: docker exec linux_docker git clone https://github.com/Accuris-Technologies-Ltd/Fastnetmon-with-GRE-Support.git fastnetmon
 
       - name: Configure build
         run: |
