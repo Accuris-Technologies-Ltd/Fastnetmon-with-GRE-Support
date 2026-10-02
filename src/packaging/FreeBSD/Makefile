@@ -27,7 +27,7 @@ LIB_DEPENDS=	libboost_regex.so:devel/boost-libs \
 USES=	cmake compiler:c++11-lang pkgconfig localbase:ldflags ssl
 
 USE_GITHUB=	yes
-GH_ACCOUNT=	pavel-odintsov
+GH_ACCOUNT=	potvinp
 
 USERS=	${PORTNAME}
 GROUPS=	${PORTNAME}

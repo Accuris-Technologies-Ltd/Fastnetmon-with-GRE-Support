@@ -90,6 +90,7 @@ jobs:
       DEBIAN_FRONTEND: noninteractive
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
     steps:
       - name: Resolve build version
         id: meta
@@ -121,6 +122,7 @@ jobs:
           docker exec \
             --env AWS_ACCESS_KEY_ID \
             --env AWS_SECRET_ACCESS_KEY \
+            --env R2_ACCOUNT_ID \
             linux_docker perl fastnetmon/src/scripts/install_fastnetmon_dependencies.pl gcc_12_1_0
 
       - name: Install dependencies
@@ -129,6 +131,7 @@ jobs:
           docker exec \
             --env AWS_ACCESS_KEY_ID \
             --env AWS_SECRET_ACCESS_KEY \
+            --env R2_ACCOUNT_ID \
             linux_docker perl fastnetmon/src/scripts/install_fastnetmon_dependencies.pl
 
       - name: Build FastNetMon
@@ -145,16 +148,15 @@ jobs:
             ${{ steps.meta.outputs.version }} \
             ${{ matrix.distro_name }} ${{ matrix.distro_version }}
 
-      - name: Upload DEB package to storage
+      - name: Upload DEB package to Cloudflare R2
         run: |
           docker exec \
             --env AWS_ACCESS_KEY_ID \
             --env AWS_SECRET_ACCESS_KEY \
-            linux_docker s3cmd --disable-multipart \
-              --host=storage.googleapis.com \
-              --host-bucket="%(bucket).storage.googleapis.com" \
+            --env R2_ACCOUNT_ID \
+            linux_docker bash -c 'exec s3cmd --disable-multipart --region=auto --host="$R2_ACCOUNT_ID.r2.cloudflarestorage.com" --host-bucket="%(bucket)s.$R2_ACCOUNT_ID.r2.cloudflarestorage.com" "$@"' _ \
               put /tmp/fastnetmon_${{ steps.meta.outputs.version }}_${{ matrix.debian_package_architecture }}.deb \
-              s3://community_packages/${{ steps.meta.outputs.version }}/${{ matrix.distro_name }}/${{ matrix.distro_version }}/fastnetmon_${{ steps.meta.outputs.version }}_${{ matrix.debian_package_architecture }}.deb
+              s3://fastnetmon-community-packages/${{ steps.meta.outputs.version }}/${{ matrix.distro_name }}/${{ matrix.distro_version }}/fastnetmon_${{ steps.meta.outputs.version }}_${{ matrix.debian_package_architecture }}.deb
 
       - name: Install default configuration
         run: docker exec linux_docker cp fastnetmon/src/fastnetmon.conf /etc/fastnetmon.conf

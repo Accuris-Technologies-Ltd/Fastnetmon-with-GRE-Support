@@ -8,4 +8,4 @@ Debian, Ubuntu, Fedora, FreeBSD packages in their official repositories have the
 
 ## Reporting a Vulnerability
 
-To report vulnerability please use this email pavel.odintsov@gmail.com We guarantee initial feedback in 48 hours. 
+To report vulnerability please use this email info@accuris.ca We guarantee initial feedback in 48 hours. 

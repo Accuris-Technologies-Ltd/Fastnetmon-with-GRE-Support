@@ -27,6 +27,7 @@ jobs:
       DEBIAN_FRONTEND: noninteractive
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
     steps:
       - name: Start base container
         run: |
@@ -49,6 +50,7 @@ jobs:
           docker exec \
             --env AWS_ACCESS_KEY_ID \
             --env AWS_SECRET_ACCESS_KEY \
+            --env R2_ACCOUNT_ID \
             linux_docker perl fastnetmon/src/scripts/install_fastnetmon_dependencies.pl gcc_12_1_0
 
       - name: Install dependencies
@@ -57,6 +59,7 @@ jobs:
           docker exec \
             --env AWS_ACCESS_KEY_ID \
             --env AWS_SECRET_ACCESS_KEY \
+            --env R2_ACCOUNT_ID \
             linux_docker perl fastnetmon/src/scripts/install_fastnetmon_dependencies.pl
 
       - name: Show docker state
@@ -67,15 +70,15 @@ jobs:
       - name: Commit container to image
         run: |
           container_id=$(docker ps | tail -1 | awk '{print $1}')
-          docker commit "$container_id" ghcr.io/pavel-odintsov/fastnetmon-community-developer-${{ matrix.pretty_tag_name }}:latest
+          docker commit "$container_id" ghcr.io/Accuris-Technologies-Ltd/fastnetmon-community-developer-${{ matrix.pretty_tag_name }}:latest
           docker images
 
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
-          username: pavel-odintsov
+          username: Accuris-Technologies-Ltd
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Push developer image
-        run: docker push ghcr.io/pavel-odintsov/fastnetmon-community-developer-${{ matrix.pretty_tag_name }}:latest
+        run: docker push ghcr.io/Accuris-Technologies-Ltd/fastnetmon-community-developer-${{ matrix.pretty_tag_name }}:latest

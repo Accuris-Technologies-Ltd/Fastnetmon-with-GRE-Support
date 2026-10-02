@@ -49,14 +49,28 @@ my $gcc_version = '12.1.0';
 # Name of bucket where we keep compiled dependencies
 #
 # CI should have only two permissions for this bucket:
-# - Storage Object Creator
-# - Storage Object Viewer 
+# - Object Read & Write (R2 API token scoped to this bucket only)
 #
-# It must not have admin permissions. We should not allow overwrites of existing binary dependencies. Only way to replace binary dependency with same name to manually remove it from S3
+# It must not have admin permissions. We should not allow overwrites of existing binary dependencies. Only way to replace binary dependency with same name to manually remove it from R2
 #
-# Storage Object Creator permissions allow upload but do not allow replacement of same file and that's exactly what we need
+# Note: R2 API tokens cannot forbid overwrites, so protect existing objects with a bucket lock rule if needed
 #
-my $s3_bucket_binary_dependency_name = 'community_binary_dependencies';
+my $s3_bucket_binary_dependency_name = 'fastnetmon-community-binary-dependencies';
+
+# Returns s3cmd command prefix configured for Cloudflare R2 or empty string when R2_ACCOUNT_ID is not set
+# Credentials are read by s3cmd from AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY environment variables
+sub get_r2_s3cmd_command {
+    my $account_id = $ENV{'R2_ACCOUNT_ID'};
+
+    unless ($account_id && $account_id =~ /^[0-9a-zA-Z]+$/) {
+        warn "R2_ACCOUNT_ID is not set or invalid, cannot use Cloudflare R2\n";
+        return '';
+    }
+
+    my $r2_host = "$account_id.r2.cloudflarestorage.com";
+
+    return "s3cmd --disable-multipart --region=auto --host=$r2_host --host-bucket=\"%(bucket)s.$r2_host\"";
+}
 
 # We are using this for Boost build system
 # 5.3 instead of 5.3.0
@@ -107,11 +121,11 @@ my $openssl_folder_name = "openssl_1_1_1q";
 my $current_distro_architecture = `uname -m`;
 chomp $current_distro_architecture;
 
-# Retrieves binary build of particular dependency from Google
+# Retrieves binary build of particular dependency from Cloudflare R2
 # Expects argument in format: libbpf_1_0_1
 # In case of success returns 1
 # In case of any hash related issues returns 2
-sub get_library_binary_build_from_google_storage {
+sub get_library_binary_build_from_r2 {
     my $dependency_name = shift;
 
     my $dependency_archive_name = "$dependency_name.tar.gz";
@@ -128,13 +142,18 @@ sub get_library_binary_build_from_google_storage {
     }
 
     # print "Will use following path to retrieve dependency: $binary_path\n";
-    my $download_file_return_code =
-        system("s3cmd --disable-multipart  --host=storage.googleapis.com --host-bucket=\"%(bucket).storage.googleapis.com\" get $binary_path /tmp/$dependency_archive_name >/dev/null 2>&1");
+    my $s3cmd = get_r2_s3cmd_command();
+
+    unless ($s3cmd) {
+        return 0;
+    }
+
+    my $download_file_return_code = system("$s3cmd get $binary_path /tmp/$dependency_archive_name >/dev/null 2>&1");
 
     if ($download_file_return_code != 0) {
         my $real_exit_code = $download_file_return_code >> 8;
 
-        print "Cannot download dependency file from Google Storage. Exit code: $real_exit_code\n";
+        print "Cannot download dependency file from Cloudflare R2. Exit code: $real_exit_code\n";
         return 0;
     }
 
@@ -187,8 +206,8 @@ sub get_library_binary_build_from_google_storage {
 }
 
 
-# Uploads binary build to Google
-sub upload_binary_build_to_google_storage {
+# Uploads binary build to Cloudflare R2
+sub upload_binary_build_to_r2 {
     my $dependency_name = shift;
 
     my $dependency_archive_name = "$dependency_name.tar.gz";
@@ -211,11 +230,16 @@ sub upload_binary_build_to_google_storage {
         return '';
     }
 
-    my $upload_this_file =
-        system("s3cmd --disable-multipart  --host=storage.googleapis.com --host-bucket=\"%(bucket).storage.googleapis.com\" put /tmp/$dependency_archive_name $binary_path");
+    my $s3cmd = get_r2_s3cmd_command();
+
+    unless ($s3cmd) {
+        return '';
+    }
+
+    my $upload_this_file = system("$s3cmd put /tmp/$dependency_archive_name $binary_path");
 
     if ($upload_this_file != 0) {
-        print "Cannot upload dependency file to /tmp/$dependency_archive_name Google Storage\n";
+        print "Cannot upload dependency file to /tmp/$dependency_archive_name Cloudflare R2\n";
         return '';
     }
 

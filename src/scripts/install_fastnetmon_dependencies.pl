@@ -829,8 +829,8 @@ sub main {
 
         my $cache_download_start_time = time();
 
-        # Try to retrieve it from S3 bucket 
-        my $get_from_cache = Fastnetmon::get_library_binary_build_from_google_storage($package, $binary_hash);
+        # Try to retrieve it from Cloudflare R2 bucket 
+        my $get_from_cache = Fastnetmon::get_library_binary_build_from_r2($package, $binary_hash);
 
         my $cache_download_duration = time() - $cache_download_start_time;
         $dependencies_download_time += $cache_download_duration;
@@ -866,8 +866,8 @@ sub main {
             print "Package build time: " . int($build_time_minutes) . " Minutes\n";
         }
 
-        # Upload successfully built package to S3
-        my $upload_binary_res = Fastnetmon::upload_binary_build_to_google_storage($package);
+        # Upload successfully built package to Cloudflare R2
+        my $upload_binary_res = Fastnetmon::upload_binary_build_to_r2($package);
 
         # We can ignore upload failures as they're not critical
         if (!$upload_binary_res) {
