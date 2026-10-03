@@ -104,6 +104,16 @@ jobs:
       - name: Start base container
         run: docker run --name linux_docker -d -t ${{ matrix.docker_image }}
 
+      # Debian 11 is end of life and deb.debian.org no longer serves its updated packages,
+      # so use the snapshot that the official image was built from
+      - name: Use snapshot.debian.org for Debian 11
+        if: matrix.distro_name == 'debian' && matrix.distro_version == '11'
+        run: |
+          docker exec linux_docker sed -i \
+            -e 's|^# deb http://snapshot|deb [check-valid-until=no] http://snapshot|' \
+            -e 's|^deb http://deb.debian.org|# &|' \
+            /etc/apt/sources.list
+
       - name: Update apt cache
         run: docker exec --env DEBIAN_FRONTEND linux_docker bash -c "apt-get update || true"
 
