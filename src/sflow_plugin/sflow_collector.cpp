@@ -451,7 +451,7 @@ bool process_sflow_flow_sample(const uint8_t* data_pointer,
 
                 parser_options_t parser_options_ipv4{};
 
-                parser_options_ipv4.unpack_gre = false;
+                parser_options_ipv4.unpack_gre = true;
                 parser_options_ipv4.read_packet_length_from_ip_header =
                     fastnetmon_global_configuration.sflow_read_packet_length_from_ip_header;
 
