@@ -148,12 +148,14 @@ sub get_library_binary_build_from_r2 {
         return 0;
     }
 
-    my $download_file_return_code = system("$s3cmd get $binary_path /tmp/$dependency_archive_name >/dev/null 2>&1");
+    my $download_output = `$s3cmd get $binary_path /tmp/$dependency_archive_name 2>&1`;
+    my $download_file_return_code = $?;
 
     if ($download_file_return_code != 0) {
         my $real_exit_code = $download_file_return_code >> 8;
 
         print "Cannot download dependency file from Cloudflare R2. Exit code: $real_exit_code\n";
+        print "s3cmd output: $download_output\n";
         return 0;
     }
 
@@ -635,7 +637,7 @@ sub install_boost {
     my $archive_file_name = "boost_${boost_version_with_underscore}.tar.gz";
 
     print "Download Boost source code\n";
-    my $boost_download_result = download_file("https://boostorg.jfrog.io/artifactory/main/release/$boost_version/source/boost_${boost_version_with_underscore}.tar.gz", $archive_file_name, '06d4bff547c1948fbdaf59b9d9d1399917ed0eb3');
+    my $boost_download_result = download_file("https://archives.boost.io/release/$boost_version/source/boost_${boost_version_with_underscore}.tar.gz", $archive_file_name, '06d4bff547c1948fbdaf59b9d9d1399917ed0eb3');
         
     unless ($boost_download_result) {
         warn "Can't download Boost source code\n";
