@@ -183,31 +183,31 @@ sub main {
         'cmake_3_23_4'          => {
             'ubuntu:24.04' => '50205c99d7b7ecf5a5cadc078ea0b6d6903a9ebfa7d7468ca9361e73ea7589fdd4a16f8ba09ca00dbb4a07e132f581288dcceb5069cd741f4935fe0e1da30ef5',
 
-            'ubuntu:aarch64:24.04' => '',
+            'ubuntu:aarch64:24.04' => '1f19d5bfbff5f90980bceaecb0969ea69416436ceb45f951d43f82cb8aaebb21e082d265901799ab73d826c32e82c8d8cb5b0a86064a23dce35a0a1c5c8bd32e',
             'centos:7'            => '',
 
             'centos:8'            => '74aae21b4da6e997f4baec57fab25a237b7de959015bd0d9869d55a6a80a3c427f2ed701727e10e3ef08d8c02b2181968aa586005f08df03b04a80c2351514d2',
-            'centos:aarch64:8'    => '',
+            'centos:aarch64:8'    => '5b5808cf3413cb298ede41308f7bcc83a3eccef409062831092b4f4cc26e8547ad2ee83232c21459bab497afe68d8f0fbdaf03eef8eb7b93ba577104aeefad13',
 
             'centos:9'            => '7b8a768d3aa73a44e999e219b3c9fc549d64df9c4a670ca3507f2804f5d6019cf6100f705c6f5bb55e59714878e1928395d28681f8aa36f2ffbef92fed27b327',
-            'centos:aarch64:9'    => '',
+            'centos:aarch64:9'    => '7b68e7cbbf96051cb8dcc070fa40f62cd439c53ec27b7078197d2fcb3deed08626ac39771d9fc3f2d6fc2e2324228063a723a3ef0f26cb2d1eca863894151050',
 
             'debian:10'           => '',
 
             'debian:11'           => 'b845892b135246b76853d8428e8d31ea5a82b2ac3434726cfbbc0e636e392463b2f29392d1271a6a46c1362202a6a436b70dd76ea27f3aa328376162292682e1',
             'debian:aarch64:11'   => '0bcc9f6e2678d25fb3c17f114365040fb28bc0a2987c9635e8a299b95555ae8c7c3a0937cb20a682408366f7c6d61f0fd75c3aad6f721f7ee8240032c83c99cd',
 
-            'debian:12' => '',
-            'debian:aarch64:12' => '',
+            'debian:12' => 'bdf6fa145bdfe0cc779461d8dc6798c09058f4eb8d7c7017a304f1bf30b315da88d78831c980db4c281069cdecaa03549e82f3aee201561261c17ddfd6fb988b',
+            'debian:aarch64:12' => '5596bacbc9673637cea5017d90762828b82a4ca8b43b2caa26465e509555a81e5700ee19964e44daa7ffd7731ca76685a68591d725559c7bad3f79cc2f6c87a6',
 
             'ubuntu:16.04'        => '',
             'ubuntu:18.04'        => '',
 
             'ubuntu:20.04'        => '5e4d2a87c761db9dc3d74969225aec0116ea15b5776cd36b606c57f73e4647685007a447b60f1bc7857233e44bb38940cbe5bc036b6b26c89b3da11bef015bb2',
-            'ubuntu:aarch64:20.04'=> '',
+            'ubuntu:aarch64:20.04'=> '512824abf2c89ed04e495b0f27d2423e47613ac1972bf66c04d33d892c21999a96fae4a6f51288d9ee536c7919435d18e1ddc53e10cbe2a244f2f2c2adcfe310',
 
             'ubuntu:22.04'        => '1be59fcc7b3d89eb9fcd60b3af47963dc96b96d2d67ad849bfc1ae1efb293e974bde25ca60b6aebdd35f6fdf1b88674641696c5d71e86c6eaca31e3d26042969',
-            'ubuntu:aarch64:22.04'=> '',
+            'ubuntu:aarch64:22.04'=> '7585705bbac730886147131352e61268ae042152084ab7698ad22e077ba644ef726d5f8831becfc325b2c49fa188ea234246aeaed408d069908bef72c39eb5dc',
         },
         'boost_build_4_9_2'     => {
             'ubuntu:24.04' => 'f5242ecf5671cfa9b8e290c9f5e87fd1017b22b58928e770a67fe7b57915776a1b2f1eadf6abc45c6241ad697ea1092896f505ebb3a5ae18ec9eedf836aaca69',
