@@ -70,7 +70,7 @@ jobs:
       - name: Commit container to image
         run: |
           container_id=$(docker ps | tail -1 | awk '{print $1}')
-          docker commit "$container_id" ghcr.io/Accuris-Technologies-Ltd/fastnetmon-community-developer-${{ matrix.pretty_tag_name }}:latest
+          docker commit "$container_id" ghcr.io/accuris-technologies-ltd/fastnetmon-community-developer-${{ matrix.pretty_tag_name }}:latest
           docker images
 
       - name: Log in to GitHub Container Registry
@@ -81,4 +81,4 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Push developer image
-        run: docker push ghcr.io/Accuris-Technologies-Ltd/fastnetmon-community-developer-${{ matrix.pretty_tag_name }}:latest
+        run: docker push ghcr.io/accuris-technologies-ltd/fastnetmon-community-developer-${{ matrix.pretty_tag_name }}:latest
