@@ -185,10 +185,17 @@ sub get_library_binary_build_from_r2 {
     # Hash must exist for all our existing dependencies
     unless ($current_build_hash) {
         warn "Cannot get $dependency_name hash for Distro $distro_type $distro_version architecture $machine_architecture, please add it to build configuration. Retrieved file with hash: $sha512";
-        return 2;
+
+        # Opt-in mode to collect all missing hashes in one run, workflows enable it only for manual runs
+        unless ($ENV{'FASTNETMON_ALLOW_MISSING_HASHES'}) {
+            return 2;
+        }
+
+        warn "FASTNETMON_ALLOW_MISSING_HASHES is set, continue without hash validation for $dependency_name\n";
     }
 
-    if ($sha512 ne $current_build_hash) {
+    # Missing hash is tolerated only in hash collection mode, mismatch is always an error
+    if ($current_build_hash && $sha512 ne $current_build_hash) {
         warn "Hash mismatch. Expected: $current_build_hash got: $sha512. It may be sign of data tampering, please validate data source\n";
         return 2;
     }

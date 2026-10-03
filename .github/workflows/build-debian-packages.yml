@@ -10,6 +10,11 @@ on:
         description: "FastNetMon build version"
         required: false
         default: "1.2.10"
+      collect_missing_hashes:
+        description: "Hash collection mode: continue past dependencies without a stored hash and print them. Skips the FastNetMon build and package upload. Never use for release builds"
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -91,6 +96,8 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+      # Only set for manual runs with collect_missing_hashes enabled, empty means strict hash validation
+      FASTNETMON_ALLOW_MISSING_HASHES: ${{ github.event_name == 'workflow_dispatch' && inputs.collect_missing_hashes && '1' || '' }}
     steps:
       - name: Resolve build version
         id: meta
@@ -133,6 +140,7 @@ jobs:
             --env AWS_ACCESS_KEY_ID \
             --env AWS_SECRET_ACCESS_KEY \
             --env R2_ACCOUNT_ID \
+            --env FASTNETMON_ALLOW_MISSING_HASHES \
             linux_docker perl fastnetmon/src/scripts/install_fastnetmon_dependencies.pl gcc_12_1_0
 
       - name: Install dependencies
@@ -142,15 +150,19 @@ jobs:
             --env AWS_ACCESS_KEY_ID \
             --env AWS_SECRET_ACCESS_KEY \
             --env R2_ACCOUNT_ID \
+            --env FASTNETMON_ALLOW_MISSING_HASHES \
             linux_docker perl fastnetmon/src/scripts/install_fastnetmon_dependencies.pl
 
       - name: Build FastNetMon
+        if: ${{ !env.FASTNETMON_ALLOW_MISSING_HASHES }}
         run: docker exec linux_docker perl fastnetmon/src/scripts/fastnetmon_build.pl
 
       - name: Build library bundle
+        if: ${{ !env.FASTNETMON_ALLOW_MISSING_HASHES }}
         run: docker exec linux_docker perl fastnetmon/src/scripts/build_library_bundle.pl /opt/fastnetmon_libraries_bundle.tar.gz
 
       - name: Build DEB package
+        if: ${{ !env.FASTNETMON_ALLOW_MISSING_HASHES }}
         run: |
           docker exec linux_docker \
             fastnetmon/src/scripts/build_any_package.pl deb \
@@ -159,6 +171,7 @@ jobs:
             ${{ matrix.distro_name }} ${{ matrix.distro_version }}
 
       - name: Upload DEB package to Cloudflare R2
+        if: ${{ !env.FASTNETMON_ALLOW_MISSING_HASHES }}
         run: |
           docker exec \
             --env AWS_ACCESS_KEY_ID \
@@ -169,15 +182,18 @@ jobs:
               s3://fastnetmon-community-packages/${{ steps.meta.outputs.version }}/${{ matrix.distro_name }}/${{ matrix.distro_version }}/fastnetmon_${{ steps.meta.outputs.version }}_${{ matrix.debian_package_architecture }}.deb
 
       - name: Install default configuration
+        if: ${{ !env.FASTNETMON_ALLOW_MISSING_HASHES }}
         run: docker exec linux_docker cp fastnetmon/src/fastnetmon.conf /etc/fastnetmon.conf
 
       - name: Inspect linked libraries
+        if: ${{ !env.FASTNETMON_ALLOW_MISSING_HASHES }}
         run: |
           docker exec linux_docker ldd /opt/fastnetmon-community/app/bin/fastnetmon
           docker exec linux_docker ldd /opt/fastnetmon-community/app/bin/fastnetmon_client
           docker exec linux_docker ldd /opt/fastnetmon-community/app/bin/fastnetmon_api_client
 
       - name: Smoke test binaries
+        if: ${{ !env.FASTNETMON_ALLOW_MISSING_HASHES }}
         run: |
           docker exec linux_docker /opt/fastnetmon-community/app/bin/fastnetmon_api_client --help
           docker exec linux_docker /opt/fastnetmon-community/app/bin/fastnetmon_client --help
