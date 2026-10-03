@@ -857,7 +857,7 @@ sub install_cares {
 sub install_zlib {
     my $folder_name = shift;
 
-    my $res = install_configure_based_software("https://zlib.net/zlib-1.3.1.tar.gz",
+    my $res = install_configure_based_software("https://zlib.net/fossils/zlib-1.3.1.tar.gz",
         "f535367b1a11e2f9ac3bec723fb007fbc0d189e5", "$library_install_folder/$folder_name", "");
 
     unless ($res) {
