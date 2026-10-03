@@ -128,8 +128,8 @@ sub main {
             'ubuntu:aarch64:24.04' => 'ff69223cdc520f1d5358e2c33350b531a7c7363ca84fdbdaea9da79c61472a315a4bcc60db178592322755fd7e74c7eb59a1a03769793b5f97dc81705333b8bb',
             'debian:10'           => '',
 
-            'debian:11'           => '',
-            'debian:aarch64:11'   => '',
+            'debian:11'           => '84aca3181c258915f4d9da05eb304b6528263b09005d005741e6c2eb9bd32dcb4fa5f591986d9c5eb81f4428a3edbfa6df3fce785cf324819d2864bcf1be6262',
+            'debian:aarch64:11'   => '9903028fb2c93a0cbc46a2b84ead7465a5da82b1908e57b2a4e7e2afb192bd56d7f67f91beb79beb4f5a91946a259e683ddc473d66cb198e122fc13dd4497c6d',
 
             'debian:12' => '72869b9cda377c94369c5a5cc3f0fa6a3f633e84fb344c7e209e8bf99fa941377c0903d0684eaab39b36310335df13882b2bd187f28bb5d3d7846f205454a597',
             'debian:aarch64:12' => '010e59561cf1ccd395d42c36e3cfa2d9d0fe8a91ad5a37d05563ee6ca83313bdc51c0733e6f27dad538f549d56bc00ea71aed3933e9e424015f3f4200565fe48',
@@ -165,8 +165,8 @@ sub main {
 
             'debian:10'           => '',
 
-            'debian:11'           => '',
-            'debian:aarch64:11'   => '',
+            'debian:11'           => 'c5060c4008a64b25c5c950b405f6bf7c751eeb37180899505fbdbb77335fe6660f6db3c219583f25716ea3953f4adccfe5261d6dfcba3baa0eca8f2e5e220afc',
+            'debian:aarch64:11'   => 'cd59dce9d3bbf4f2ce31d890e4306c7c6ada74916dedce7266d8da8c353de93629924f3b1d007c7dffd1b1322f8de19cce44ebd632aba4fa1b67546afcdbc2ba',
 
             'debian:12' => '',
             'debian:aarch64:12' => '',
@@ -194,8 +194,8 @@ sub main {
 
             'debian:10'           => '',
 
-            'debian:11'           => '',
-            'debian:aarch64:11'   => '',
+            'debian:11'           => 'b845892b135246b76853d8428e8d31ea5a82b2ac3434726cfbbc0e636e392463b2f29392d1271a6a46c1362202a6a436b70dd76ea27f3aa328376162292682e1',
+            'debian:aarch64:11'   => '0bcc9f6e2678d25fb3c17f114365040fb28bc0a2987c9635e8a299b95555ae8c7c3a0937cb20a682408366f7c6d61f0fd75c3aad6f721f7ee8240032c83c99cd',
 
             'debian:12' => '',
             'debian:aarch64:12' => '',
@@ -223,8 +223,8 @@ sub main {
 
             'debian:10'           => '',
 
-            'debian:11'           => '', 
-            'debian:aarch64:11'   => '',
+            'debian:11'           => '0fa41179410cae607efeae7d24f5d9b9f37764ca457bef96703981cfc975c95cbc342913ca0bf2a5e55931160f6801ce1719cd231142c4a28dd39e5fbbf044b7', 
+            'debian:aarch64:11'   => 'badfcbab254b9b17eb4ecb4010c6df12b1fffe971db9d8c9821d7a047ce5e3840b5f4655e01a58647007dc0241548c73fc1500e4009eca1a3272de51553bdab2',
 
             'debian:12' => '',
             'debian:aarch64:12' => '',
@@ -251,8 +251,8 @@ sub main {
             'centos:aarch64:9'    => '',
 
             'debian:10'           => '',
-            'debian:11'           => '', 
-            'debian:aarch64:11'   => '',
+            'debian:11'           => 'e974a066289ff79156e60533766b899085dff0c95b20a4b5a88848a91c441bbba298705009647ba950b04dcc53fac7aabe6d8fe17255cf789dfe9d772bed99da', 
+            'debian:aarch64:11'   => '38250f41eda549d0b68ec34390c110cf36494da524c031dda8432ce3b4017c58e15fb4695cb93c78fe05e4ec6be265906546e489d9d63519d19b1b3b584f5522',
 
             'debian:12' => '',
             'debian:aarch64:12' => '',
@@ -279,8 +279,8 @@ sub main {
 
             'debian:10'           => '',
 
-            'debian:11'           => '',
-            'debian:aarch64:11'   => '',
+            'debian:11'           => '538e01d4a06c1a62a4e94fb29b0981cdb57b75a418814a5d682bdf81cbede43864461fd5cbe2d03805b5fe783b64ed3095eeda5171bad277782846b56f8b8c55',
+            'debian:aarch64:11'   => '7a1bde83552b725b073d58976937395efe684e9a13b89afccdb55ed25b0c65548f8102a50db268998eb07a3aab3fdce7180e483f57f60417f7a8ca03ad818a69',
 
             'debian:12' => '',
             'debian:aarch64:12' => '',
@@ -307,8 +307,8 @@ sub main {
 
             'debian:10'           => '',
 
-            'debian:11'           => '', 
-            'debian:aarch64:11'   => '',
+            'debian:11'           => '2d516e3cd55045fb585f06575d1feb9b982fb32162da35f67258c3c27a27fb369231840c5b06f9dd51b1db4053e288239a5aa37cddbf48dcd37caeaa4f11fdce', 
+            'debian:aarch64:11'   => 'df3898df1b35c67542a0a35fd48c76ddc1fb1594415fa2f70f9c9f825a306f7e3972f207c3921c954fb6d5524ebe4f5fb9f790bae41a01dec39b5f38ff69c4fd',
 
             'debian:12' => '',
             'debian:aarch64:12' => '',
@@ -336,8 +336,8 @@ sub main {
 
             'debian:10'           => '',
 
-            'debian:11'           => '', 
-            'debian:aarch64:11'   => '',
+            'debian:11'           => '7fff54a781812d3f4987b7aa9d594d0058913693947e3766f97e01f8e87949d887b8abfcb77afe165231c186ff043b1db928ff8ed5c81f372e6324d183f8882d', 
+            'debian:aarch64:11'   => 'e7ee645247e4d083a8dd67f2a0486efe4ad08cb407a3aa0871ebd6bb764a65d96ce8172db07880e69572ca815e22528edb4be6017a8dcf7dfca963924eee74ac',
 
             'debian:12' => '',
             'debian:aarch64:12' => '',
@@ -364,8 +364,8 @@ sub main {
             'centos:aarch64:9'    => '',
 
             'debian:10'           => '',
-            'debian:11'           => '', 
-            'debian:aarch64:11'   => '',
+            'debian:11'           => 'b1c1e3285d4bc8ce3bfc7ffe2e28e51435ab9b9012cd74be4a01f63a0879b72f809f1b1d99a2572a689da474bfce373c08778c43c25ebeedc2989419500fad8d', 
+            'debian:aarch64:11'   => '78b061e3f139dab6830cd9ef2bdc856de01ade01e0e0d73b656bc55ec2cd5c7ef0df3c530cbab6acc78fe2ea11f3ef7d229e64eb46d6a80335ff1e4558922a81',
 
             'debian:12' => '',
             'debian:aarch64:12' => '',
@@ -392,8 +392,8 @@ sub main {
 
             'debian:10'           => '',
 
-            'debian:11'           => '', 
-            'debian:aarch64:11'   => '',
+            'debian:11'           => '5182ea7f2a0d6e57f21ce1f80f67b82eff8157026c2db820635a4e2a6360733c4a11c6ff4c884f1293709f41b84b873edb4893c7ba46bf84ad540e9273adaff9', 
+            'debian:aarch64:11'   => '812f7636c2c4ed52f52f348a6b69215bcbde9a1e7f0298a79a013f5464195c9045012de35333508b199de465a503d5bc99a93a1d431051f37734ddc7705db42e',
 
             'debian:12' => '',
             'debian:aarch64:12' => '',
@@ -418,8 +418,8 @@ sub main {
 
             'debian:10'           => '',
 
-            'debian:11'           => '',
-            'debian:aarch64:11'   => '',
+            'debian:11'           => '1601b4d63494ac4b3cc22507b0b597240a6880e605a6dab913bd96e7d0f99c31d4d3ecfed9c528f89f9c1ed9bdf509fe131219f9dd73812bc1cd3e64cc7375a6',
+            'debian:aarch64:11'   => '5a4dc29115bb182ac84ed315851b0e7de926044d731a38a08ed1e0eca6a8bab7dcb310764ab61ef164469f02bef2293d7e6a07dcc8eb70eb418041d91b4f00f7',
 
             'debian:12' => '',
             'debian:aarch64:12' => '',
@@ -447,8 +447,8 @@ sub main {
 
             'debian:10'           => '',
 
-            'debian:11'           => '',
-            'debian:aarch64:11'   => '',
+            'debian:11'           => 'e587770657b01821e9b4acf9a4eb1d886d7fbeb77346964ff2f940714f2abacc4a15200fe0bf21f15eca84fc683eff3ff8dbcb53322bd2a1ab058800fa26307c',
+            'debian:aarch64:11'   => '60b291056c4159ebf339b7362e7983b2d126ffa4c8d45cd33cb40b1e25ac8cfbbdb932e618a5869e59644b933e98ebdb8f1394c8b8b6a68d34c4bf1d984ba6d3',
 
             'debian:12' => '',
             'debian:aarch64:12' => '',
@@ -476,8 +476,8 @@ sub main {
 
             'debian:10'           => '',
 
-            'debian:11'           => '', 
-            'debian:aarch64:11'   => '',
+            'debian:11'           => 'd6080bf481bc67e621ef16b4e9edd0282ff10661bc8e94fa6bd6a20baff3541fe2ef584e38499a7cb9b62461c640f77b8737ad9e2af61a17ceec23a4fc739310', 
+            'debian:aarch64:11'   => '7bddf6fe21cc1af66be126a875b8903f1f7301e20adae4d673188800320981893729599c06f14f20ad86dac859f867ca192e5161bd2e53ba9a7526b2ddb29d57',
 
             'debian:12' => '',
             'debian:aarch64:12' => '',
@@ -504,8 +504,8 @@ sub main {
 
             'debian:10'           => '',
 
-            'debian:11'           => '', 
-            'debian:aarch64:11'   => '',
+            'debian:11'           => '2f4339f468450660e0077ef05e51712445f36a084525188a47d282f195fe043a504a1939601f743eb2c6f1163d87090444f729fc774f53ebec91995f92059718', 
+            'debian:aarch64:11'   => 'd3c57529d6ef80f2abbced273fb83cb84a73dd8b3c3695de49028b8827b9c7e7ca7be70ed7f83fd7ca56b17988777030b916c71601cc555a8a5439df3a55da0a',
 
             'debian:12' => '',
             'debian:aarch64:12' => '',
@@ -532,8 +532,8 @@ sub main {
 
             'debian:10'           => '',
 
-            'debian:11'           => '',
-            'debian:aarch64:11'   => '',
+            'debian:11'           => '414edab645d347cb9a8ad6cadfd504da366a1413a6784e2b03ea3c285aa717188237f25c9aaf0340de074e2c0473ed473407af1c2154f588029dcec6c6b66685',
+            'debian:aarch64:11'   => '0cf5dd40bf3e4916a67d0a1511c456b4543f077d4735021834f1baf9ae2ad98221b8beb4c14f5eb9dba0a00ffd84cdf81758115c1c850b9c3c128b37a598c8ad',
 
             'debian:12' => '',
             'debian:aarch64:12' => '',
@@ -560,8 +560,8 @@ sub main {
 
             'debian:10'           => '',
 
-            'debian:11'           => '', 
-            'debian:aarch64:11'   => '',
+            'debian:11'           => '34bc0b4945ea427bce684849531ce7b401b06a69c1a9f394e2304b3ddb101f2b4eb34ccaa6c897ad3d1393ddefbd3b9c6b6624e5d7ac4baeed0a62dc7c0d3f1f', 
+            'debian:aarch64:11'   => '86d50db9f96f6389eddbc8b18cba762674c0b9eaf422d8f420d935fff6aa8b4c4aa677c28992d39dffdfd1266030e2753ca70b09761e39195980be8c2f085200',
 
             'debian:12' => '',
             'debian:aarch64:12' => '',
@@ -588,8 +588,8 @@ sub main {
 
             'debian:10'           => '',
 
-            'debian:11'           => '',
-            'debian:aarch64:11'   => '',
+            'debian:11'           => '6db3a29c000690872f5ab7eda81afdda2da9bacfb25e3d60281276b69b67c5d67b6bc34aa41ad54bbadbc8188d778b3c9e952df58eeaeca8593ef896eef61ab5',
+            'debian:aarch64:11'   => 'e41b27fe271f751a369b9e78d51f82877f6f20ded797eb8f9223c811c49eb93ca434ad1584e21e073b44067a13e6344861fb26bdecb30679d10b0fe2b73dec66',
 
             'debian:12' => '',
             'debian:aarch64:12' => '',
@@ -616,8 +616,8 @@ sub main {
 
             'debian:10'           => '',
 
-            'debian:11'           => '', 
-            'debian:aarch64:11'   => '',
+            'debian:11'           => 'bb3c029d24ef5d9cd152de7cf95e61115c5d96319781cdc24f7fe57abd67ea84c0b09ff9ad4414d35aadd28a13afc39d93948b49c1f8730605b2b7f2dcc1c9d0', 
+            'debian:aarch64:11'   => 'b26d21e2b8cfe1e37ec8bd463cc1ed6fd0fa94ddf62d0aa7faf9511c61c2fa0102d4a2629c1bee2cab778d4e87963d0c5997aef4debd5f6a65f48103d1c28180',
 
             'debian:12' => '',
             'debian:aarch64:12' => '',
@@ -640,8 +640,8 @@ sub main {
             'centos:9'             => '289b5bf8e470666fd0010f103e384b762dc412eaa49d28bddc9e335e41f802d33e1e7db3e1ad75328f6bf7ef9d860828f9e896dcfe18064f2503b7e7e01bf1a8',
             'centos:aarch64:9'     => '',
             'debian:10'            => '',
-            'debian:11'            => '',
-            'debian:aarch64:11'    => '',
+            'debian:11'            => '05135ef79479a0916391ad0ab89acc8998630aa925948d30d01fce222efe8f6c3cc0e3afa98f2b27618dbf7528bb314dde69a09264b0c3ea27930cfeb9748068',
+            'debian:aarch64:11'    => 'b9eea1ea728bdbce977d82ef6125de98bb8706a98ad6c99fb4c092123ade08c0ad3cd482fd105afca8b07ee3f7bc13f555bdbd4e5580db36c19e6809aa6e2775',
             'debian:12'            => '',
             'debian:aarch64:12'    => '',
             'ubuntu:16.04'         => '',
@@ -664,8 +664,8 @@ sub main {
 
             'debian:10'           => '',
 
-            'debian:11'           => '',
-            'debian:aarch64:11'   => '',
+            'debian:11'           => 'eef664c2d2ad57c35df39d05928ed99f0fd48aede8abf58183f219d62bae25c0868f1938ec453ed02354beb8d6686b48dd532d4b80474217e7fae4967eeda01d',
+            'debian:aarch64:11'   => '68b3732d2bf073c4fbe42d6abe925ed64d7c02162b9094fde3b3e624a378cec44a2d210bf1eb60538c4eaa353ee828786c8d80b722f8e12175a5772b597bbc8f',
 
             'debian:12' => '',
             'debian:aarch64:12' => '',
@@ -692,8 +692,8 @@ sub main {
 
             'debian:10'           => '',
 
-            'debian:11'           => '',
-            'debian:aarch64:11'   => '',
+            'debian:11'           => 'c8088d96f1a9cb8d56c39572a2c53922f4b4f34ca73bfde43d8142d68db4765ad5cd77ea0f2222eeddf72b3dd626ef7ab301592ca8ec5b27acd697b534b31cee',
+            'debian:aarch64:11'   => '6a5ff4369ad1f6f3a0ffb880ad0ae83610ccda6b76599ed9196ac550ca4a658500d6d0b44105d6d3801dbdf5a6c938eea4df43a6f3787ff586d26cb6eff6372a',
 
             'debian:12' => '',
             'debian:aarch64:12' => '',
@@ -721,8 +721,8 @@ sub main {
 
             'debian:10'           => '',
 
-            'debian:11'           => '',
-            'debian:aarch64:11'   => '',
+            'debian:11'           => '76ff75fade399ac5cadfb4c225664f8bbe282c853880c1a1c7651f2dbb8a18b3347d99a6797b78cbef1b54a89d8b08f5b8026ac2e46ca8a1912a44b075c41c8c',
+            'debian:aarch64:11'   => 'a957db77564b6e0bde80c8c97faff7d788d2fd2697be5b33b2239ae99d9d3a3c92fe8e82f704da0ca347b096db4120b39b6318419156749ffe5a5ac9185a0dfc',
 
             'debian:12' => '',
             'debian:aarch64:12' => '',
@@ -741,8 +741,8 @@ sub main {
         'gtest_1_13_0' => {
             'debian:10'           => '',
 
-            'debian:11'           => '',
-            'debian:aarch64:11'   => '',
+            'debian:11'           => '03643f027c23da835178d3e0e9232c423180d178ed224476b914b0a0e5250fdb8871455329e1fa59b8ea4a0de84b4fc5e466536aaaa75bc618e32cb345f363e4',
+            'debian:aarch64:11'   => '24b24574dbbc638e5b395a2caa7284530de21ab35b2ba9081bdddc1b0dd1cf14d0819fe94e5503e5479b56bae146dc37ddc2646fcce993af50ba9b9be2a5c75a',
 
             'debian:12' => '',
             'debian:aarch64:12' => '',
@@ -779,8 +779,8 @@ sub main {
 
             'debian:10'           => '',
 
-            'debian:11'           => '',
-            'debian:aarch64:11'   => '',
+            'debian:11'           => 'ba7bc4c9a86cb3f079c7a203957d5abdf3bbf1a2fc3dd35e27ad6b35e7cbfa1e95fb987faf82f71455d3d3292106141db4861cef52b0425bf33fad27c7468820',
+            'debian:aarch64:11'   => 'f954b2b12892cd8f7f4e2a50a09b5c44903db142ef47b31499e610ef4b2dfb09321922a5a66d5607d678a3a0b4d71b0c4e66b0c3d63e872ca89bd58505047fef',
 
             'debian:12' => '1cf204995ae1a769679a3817c4380804f849245ebb9241d0b3ec36d6a90a5ffa8feb015a9a5970ce3594d64d4d71aef9b6f2240d62f1820c4cb1dd2368452948',
             'debian:aarch64:12' => '25fe6824e579723269cb2b29f86538db0e935fe24867b771f0766071c2e36ca61c70127fd0edbe277f693dc1c767ae2ab2d346a777030506bb6240c1baebdbef',
