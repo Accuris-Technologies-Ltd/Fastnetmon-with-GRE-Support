@@ -338,7 +338,7 @@ sub install_fastnetmon {
     chdir $temp_folder_for_building_project;
 
     # Pull code
-    exec_command("git clone $fastnetmon_git_path");
+    exec_command("git clone $fastnetmon_git_path fastnetmon");
 
     if ($? != 0) {
         die "Can't clone source code";
